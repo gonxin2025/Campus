@@ -17,6 +17,17 @@ npm run dev
 
 Abre http://localhost:3000
 
+## Estructura
+
+| Carpeta | Qué es |
+| --- | --- |
+| `web/` | La aplicación (Next.js 14, TypeScript, Tailwind). Es lo único que se publica. |
+| `web/app/v1/[...ruta]/route.ts` + `web/lib/demo.ts` | API de muestra dentro de la misma aplicación: sesión, prematrícula, aula, docente, pagos y cartera. |
+| `web/lib`, `web/components` | Cliente de la API, roles y menús, identidad; menú lateral, avatar y calendario. |
+| `api/`, `db/` | Referencia de una versión con Go y PostgreSQL. La muestra no los usa. |
+
+Lo que cambia cada visitante (prematrícula, entregas, asistencia, notas y pagos) se guarda en una cookie de su navegador durante 12 horas. Por eso funciona igual en Vercel: cada persona tiene su propia muestra, y en el mismo navegador Ana puede pagar, salir y entrar como María (contable) para ver la cuenta pagada. Para volver al estado inicial basta borrar las cookies del sitio o abrir una ventana privada.
+
 ## Vercel
 
 La interfaz es la carpeta `web`.
